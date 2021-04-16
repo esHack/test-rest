@@ -2,6 +2,7 @@ package com.example.restservice;
 
 import java.util.concurrent.atomic.AtomicLong;
 
+import org.json.JSONObject;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +22,13 @@ public class GreetingController {
 	}
 
 	@PostMapping(value = "/data", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public String data(HttpEntity<String> httpEntity) {
-		return httpEntity.getBody();
+	public JSONObject data(HttpEntity<String> httpEntity) {
+		System.out.println(httpEntity.getBody());
+		JSONObject jsonObject = new JSONObject(httpEntity.getBody());
+
+		JSONObject j2 = new JSONObject();
+		j2.append("validationResponse",jsonObject.getJSONObject("data").getInt("validationCode"));
+
+		return j2;
 	}
 }
