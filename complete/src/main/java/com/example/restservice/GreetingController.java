@@ -25,7 +25,7 @@ public class GreetingController {
 	@PostMapping(value = "/data", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public JSONObject data(HttpEntity<String> httpEntity) {
 		System.out.println(httpEntity.getBody());
-		JSONArray jsonObject = new JSONArray(new JSONObject(httpEntity.getBody()));
+		JSONArray jsonObject = new JSONArray(httpEntity.getBody());
 
 		JSONObject j2 = new JSONObject();
 		j2.append("validationResponse",jsonObject.getJSONObject(0).getJSONObject("data").getInt("validationCode"));
