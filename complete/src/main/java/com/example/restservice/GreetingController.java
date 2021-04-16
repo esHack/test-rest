@@ -25,14 +25,15 @@ public class GreetingController {
 	@PostMapping(value = "/data", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public String data(HttpEntity<String> httpEntity) {
 
-		System.out.println(httpEntity.getBody());
-		JSONArray jsonObject = new JSONArray(httpEntity.getBody());
-
-		JSONObject j2 = new JSONObject();
-		System.out.println(jsonObject.getJSONObject(0).getJSONObject("data").getString("validationCode"));
-
-		j2.put("validationResponse",jsonObject.getJSONObject(0).getJSONObject("data").getString("validationCode"));
-
-		return j2.toString();
+//		System.out.println(httpEntity.getBody());
+//		JSONArray jsonObject = new JSONArray(httpEntity.getBody());
+//
+//		JSONObject j2 = new JSONObject();
+//		System.out.println(jsonObject.getJSONObject(0).getJSONObject("data").getString("validationCode"));
+//
+//		j2.put("validationResponse",jsonObject.getJSONObject(0).getJSONObject("data").getString("validationCode"));
+//
+//		return j2.toString();
+		return "";
 	}
 }
