@@ -28,7 +28,7 @@ public class GreetingController {
 		JSONArray jsonObject = new JSONArray(httpEntity.getBody());
 
 		JSONObject j2 = new JSONObject();
-		j2.append("validationResponse",jsonObject.getJSONObject(0).getJSONObject("data").getInt("validationCode"));
+		j2.append("validationResponse",jsonObject.getJSONObject(0).getJSONObject("data").getString("validationCode"));
 
 		return j2;
 	}
